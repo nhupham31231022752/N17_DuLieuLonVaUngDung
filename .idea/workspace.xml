@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e72930d3-6346-47e6-8005-7b9506fde55c" name="Changes" comment="Update câu 6 và câu 8">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Airbnb_SparkML.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Airbnb_SparkML.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Airbnb_SparkSQL.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Airbnb_SparkSQL.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
