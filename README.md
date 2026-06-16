@@ -1,5 +1,5 @@
 # 📊 BÁO CÁO ĐỒ ÁN KẾT THÚC HỌC PHẦN
-# DỮ LIỆU LỚN VÀ ỨNG DỤNG
+## DỮ LIỆU LỚN VÀ ỨNG DỤNG
 
 <div align="center">
 
@@ -27,45 +27,61 @@
 
 # 👥 1. GIỚI THIỆU DỰ ÁN & THÀNH VIÊN THỰC HIỆN
 
-Đồ án tập trung vào việc **xử lý, phân tích và dự báo dữ liệu Airbnb** trên nền tảng điện toán phân tán Hadoop – Spark. Hệ thống cho phép lưu trữ dữ liệu quy mô lớn trên HDFS, thực hiện truy vấn song song bằng Spark SQL và xây dựng mô hình dự báo bằng Spark MLlib.
+Đồ án tập trung vào việc **xử lý, phân tích và dự báo dữ liệu Airbnb** trên nền tảng điện toán phân tán Hadoop – Spark nhằm xác định các nhân tố ảnh hưởng đến khả năng trở thành Superhost. Hệ thống cho phép lưu trữ dữ liệu quy mô lớn trên HDFS, thực hiện truy vấn song song bằng Spark SQL và xây dựng mô hình dự báo bằng Spark ML.
 
 ## 📋 Danh sách thành viên và phân công công việc
 
 | STT | Họ và tên | MSSV | Tỷ lệ đóng góp |
 |:---:|-----------|:----:|:--------------:|
-| 1 | Lê Viết Bảo | 31231025973 | 33% |
-| 2 | Hồ Quỳnh Nga | 31221024250 | 33% |
-| 3 | Phạm Ngọc Hồng Như | 31231022752 | 34% |
+| 1 | Lê Viết Bảo | 31231025973 | 33.333% |
+| 2 | Hồ Quỳnh Nga | 31221024250 | 33.333% |
+| 3 | Phạm Ngọc Hồng Như | 31231022752 | 33.333% |
 
 ---
 
 # 🏗️ 2. KIẾN TRÚC HẠ TẦNG & ĐIỂM NHẤN KỸ THUẬT
 
-## 2.1 Kiến trúc cụm phân tán (Multi-Node Cluster)
+## 2.1 Kiến trúc hệ thống (Single Node Cluster)
 
-Hệ thống được triển khai trên mô hình **3 máy chủ (3 Nodes)** kết nối thông qua mạng LAN nhằm tận dụng khả năng xử lý song song và lưu trữ phân tán của Hadoop.
+Hệ thống được triển khai trên mô hình **Single Node Cluster**, trong đó tất cả các thành phần của Hadoop và Spark được cài đặt và vận hành trên cùng một máy chủ. Mô hình này phù hợp cho mục đích học tập, nghiên cứu và thử nghiệm các ứng dụng xử lý dữ liệu lớn, đồng thời giúp đơn giản hóa quá trình triển khai và quản trị hệ thống.
 
 ```mermaid
 graph TD
-    A["🖥️ Master Node<br/>NameNode / ResourceManager"]
-    B["💻 Slave Node 1<br/>DataNode / NodeManager"]
-    C["💻 Slave Node 2<br/>DataNode / NodeManager"]
-
-    A -->|"Điều phối tác vụ & Phân chia dữ liệu"| B
-    A -->|"Điều phối tác vụ & Phân chia dữ liệu"| C
-    B <-->|"Replication (2x)"| C
+    A["🖥️ Single Node Server<br/>NameNode<br/>DataNode<br/>ResourceManager<br/>NodeManager<br/>Spark Driver & Executor"]
 ```
+
+### Đặc điểm triển khai
+
+- Toàn bộ dịch vụ Hadoop HDFS được vận hành trên một máy chủ duy nhất.
+- NameNode và DataNode cùng hoạt động trên cùng hệ thống.
+- ResourceManager và NodeManager được cấu hình trên cùng một node.
+- Spark thực thi các tác vụ xử lý dữ liệu trực tiếp trên node cục bộ.
+- Dữ liệu được lưu trữ trên HDFS và được xử lý bằng Spark SQL và Spark MLlib.
+
+### Ưu điểm
+
+- Dễ dàng cài đặt và cấu hình.
+- Tiết kiệm tài nguyên phần cứng.
+- Phù hợp cho học tập, nghiên cứu và phát triển ứng dụng thử nghiệm.
+- Hỗ trợ đầy đủ các chức năng cơ bản của hệ sinh thái Hadoop – Spark.
+
+### Hạn chế
+
+- Không tận dụng được khả năng xử lý song song của nhiều máy chủ.
+- Hiệu năng xử lý bị giới hạn bởi tài nguyên của một máy tính.
+- Không có khả năng chịu lỗi như mô hình Multi-Node Cluster.
+
 
 ### Công nghệ sử dụng
 
 | Thành phần | Công nghệ |
 |------------|-----------|
-| Runtime | Java OpenJDK 8 |
+| Runtime | Java OpenJDK 17 |
 | Distributed Storage | Hadoop HDFS |
 | Resource Management | Hadoop YARN |
 | Processing Engine | Apache Spark |
 | Programming Language | Python (PySpark) |
-| Operating System | Ubuntu Server |
+| Operating System | Windows |
 
 ---
 
@@ -91,15 +107,15 @@ graph TD
 ### Bước 1. Khởi động Hadoop và YARN
 
 ```bash
-start-dfs.sh
-start-yarn.sh
+start-dfs
+start-yarn
 ```
 
 ### Bước 2. Thiết lập môi trường hệ thống
 
 ```bash
-chmod +x scripts/setup_env.sh
-./scripts/setup_env.sh
+chmod +x scripts/setup_env.cmd
+./scripts/setup_env.
 ```
 
 ### Bước 3. Nạp dữ liệu vào HDFS
@@ -135,7 +151,7 @@ src/train_mllib.py
 
 ### 🏗️ Về mặt hạ tầng
 
-- Triển khai thành công mô hình Hadoop Cluster gồm 1 Master Node và 2 Worker Nodes.
+- Triển khai thành công môi trường Hadoop và Spark trên mô hình Single Node Cluster.
 - Hiểu rõ cơ chế lưu trữ phân tán của HDFS.
 - Nắm được quy trình quản lý tài nguyên bằng YARN.
 - Thực hành xử lý dữ liệu lớn bằng Spark trên môi trường thực tế.
@@ -159,8 +175,8 @@ Thông qua đồ án, nhóm đã tiếp cận và triển khai thành công hệ
 
 ### 🎓 ĐỒ ÁN KẾT THÚC HỌC PHẦN DỮ LIỆU LỚN VÀ ỨNG DỤNG
 
-**Giảng viên hướng dẫn:** ThS. Võ Văn Hải
+**Giảng viên hướng dẫn:** TS. Võ Văn Hải
 
-**Học kỳ 2 – Năm học 2025 – 2026**
+**Học kỳ đầu – năm 2026**
 
 </div>
