@@ -3,14 +3,13 @@
 
 <div align="center">
 
-![Hadoop](https://img.shields.io/badge/Apache%20Hadoop-3.x-66CCFF?style=for-the-badge&logo=apachehadoop&logoColor=white)
-![Spark](https://img.shields.io/badge/Apache%20Spark-3.x-E25A1C?style=for-the-badge&logo=apachespark&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Ubuntu](https://img.shields.io/badge/Ubuntu%20Server-LTS-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)
+![Hadoop](https://img.shields.io/badge/Apache%20Hadoop-3.3.6-66CCFF?style=for-the-badge&logo=apachehadoop&logoColor=white)
+![Spark](https://img.shields.io/badge/Apache%20Spark-4.1.1-E25A1C?style=for-the-badge&logo=apachespark&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3.13-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Windows](https://img.shields.io/badge/Windows-11-E95420?style=for-the-badge&logo=windows&logoColor=white)
 
-## 🏠 ĐỀ TÀI: DỰ BÁO GIÁ THUÊ AIRBNB
-
-**Giảng viên hướng dẫn:** ThS. Võ Văn Hải  
+## 🏠 ĐỀ TÀI: ỨNG DỤNG PYSPARK XÁC ĐỊNH NHÂN TỐ CỐT LÕI VÀ DỰ BÁO KHẢ NĂNG TRỞ THÀNH SUPERHOST TRÊN NỀN TẢNG AIRBNB 
+**Giảng viên hướng dẫn:** TS. Võ Văn Hải  
 **Lớp:** Big Data – Chiều thứ Hai  
 **Nhóm:** 17
 
